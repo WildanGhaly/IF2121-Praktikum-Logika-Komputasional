@@ -1,0 +1,224 @@
+/* Nama         : Hidayatullah Wildan Ghaly Buchary     */
+/* NIM          : 13521015                              */
+/* Kelas        : K3                                    */
+/* Topik        : PraPraktikum 1 Logika Komputasional   */
+/* Nama File    : PP01_13521015.txt                     */
+
+Bagian <I>
+ 
+    a. Istri dari Vito
+        Query:  suami(vito,X).
+            X = power
+            yes
+
+    b. Adik dari Elon Musk
+        Query:  kakak(elon_Musk,X).
+            X = patrick
+            yes
+
+    c. Cicit dari Gojo
+        Query:  anak(_Y,gojo), cucu(X,_Y).
+            X = anya
+            yes
+
+    d. Paman atau bibi tertua dari Wesly (pilih yang tertua)
+        Query:  anaksulung(X), anaksulung(_Xibu), anak(wesly,_Ayah), anak(wesly,_Ibu), pria(_Ayah), wanita(_Ibu), saudara(X,_Ayah), saudara(_Xibu,_Ibu), usia(X,_Uayah), usia(_Xibu,_Uibu), ((_Uayah > _Uibu) ; (_Uibu > _Uayah)).
+            X = van_Rossum
+            yes
+
+    e. Pasangan dari ipar Aqua (X adalah ipar Y jika X adalah saudara dari suami/istri Y)
+        Query:  saudara(_Z,_Y),suami(_Z,aqua), (suami(X,_Y);suami(_Y,X)).
+            X = vito
+            yes
+
+    f. Cucu termuda dari Khelli
+        Query:  cucu(X,kheli),anakbungsu(X).
+            X = patrick
+            yes
+
+    g. Orang yang menjadi anak kedua dari keluarganya*
+        Query:  anak(X,_Emak), wanita(_Emak), kakak(_Tua,X), anaksulung(_Tua), usia(X,_UsiaX), \+ (kakak(_Tua,_Y), usia(_Y,_UsiaY),_UsiaY>_UsiaX).
+            X = bambang
+            X = power
+            X = patrick
+            yes
+
+    h. Orang tua yang memiliki tepat dua anak
+        Query:  orangtua(X,_Child), saudara(_Tua,_Child), anaksulung(_Tua), anakbungsu(_Child), \+ (anak(_Child,_Ibu), wanita(_Ibu), kakak(_Tua,Child), anaksulung(_Tua), usia(Child,_UsiaC), kakak(_Tua,_Adek), usia(_Adek, _UsiaA), _UsiaA < _UsiaC).
+            X = gojo
+            X = lovelace
+            X = ave
+            X = aqua
+            yes
+
+    i. Orang yang punya mertua
+        Query:  menantu(X,_A),wanita(_A).
+            X = vito
+            X = power
+            X = ave
+            X = aqua
+            X = wulandari
+            yes
+
+    j. Wanita yang punya lebih dari 1 anak
+        Query:  anak(_A,X),saudara(_A,_B),wanita(X),anaksulung(_A),anakbungsu(_B).
+            X = indah
+            X = lovelace
+            X = aqua
+            yes
+
+    k. Wanita yang belum pernah melahirkan ketika berusia di atas 20 tahun
+        Query:  wanita(X), usia(X,_High), _High > 20, ((anak(_Child,X), anakbungsu(_Child), usia(_Child,_Umur),(_Umur >= _High - 20)) ; (\+anak(_,X))).
+            X = wulandari
+            yes
+
+    l. Keturunan dari Gede yang umurnya tidak lebih kecil dari 25 tahun
+        Query:  keturunan(X, gede), usia(X,_Y), _Y >= 25.
+            X = van_Rossum
+            X = bambang
+            X = vito
+            X = wesly
+            yes
+
+
+Bagian <II>
+
+    1. combination(N,C,X)
+        Query:  combination(5,2,X).
+            X = 10.0
+            yes
+
+    2. change(X,Y).
+        Query:  change(X, 14).
+            X = 4
+            yes
+
+    3. fpb(A, B, X)
+        Query:  fpb(14,18,X).
+            X = 2
+            yes
+
+    4. mod(A,B,X)
+        Query:  mod(5,2,X).
+            X = 1
+            yes
+
+    5. deret(X,Y)
+        Query:  deret(5,Y).
+            Y = 10
+            yes
+
+
+Bagian <III>
+
+    A1. min(List,  Min)
+        Query:  min([9, -8, -7, 11, -10], Min).
+            Min = -10
+            yes
+
+    A2. max(List,  Max)
+        Query:  max([9, -8, -7, 11, -10], Max).
+            Max = 11
+            yes
+
+    A3. range(List,  Range)
+        Query:  range([9, -8, -7, 11, -10], Range).
+            Range = 21
+            yes
+
+    A4. count(List,  Count)
+        Query:  count([9, -8, -7, 11, -10], Count).
+            Count = 5
+            yes
+
+    A5. sum(List,  Sum)
+        Query:  sum([9, -8, -7, 11, -10], Sum).
+            Sum = -5
+            yes
+
+    B1. getIndex(List, SearchedElement, Result)
+        Query:  getIndex([1,2,5,-2,1,-4,-7], -2, Index).
+            Index = 4
+            yes
+        Query:  getIndex([1,2,5,-2,1,-2,-7], -2, Index).
+            Index = 4
+            yes
+        Query:  getIndex([1,2,5,-2,0,-2,-7], -11, Index).
+            no
+
+    B2. swap(List, Index1, Index2, Result)
+        Query:  swap([5,6,7,8], 1, 1, Result).
+            Result = [5,6,7,8]
+            yes
+        Query:  swap([5,6,7,8], 4, 2, Result).
+            Result = [5,8,7,6]
+            yes
+        Query:  swap([5,6,7,8,9], 4, 6, Result).
+            no
+
+    B3. splitList(ListAwal, ListGanjil, ListGenap)
+        Query:  splitList([1,2,3,4,5,6], Ganjil, Genap).
+            Ganjil = [1,3,5]
+            Genap = [2,4,6] 
+            yes
+        Query:  splitList([1,2,3,4,5,6,7], Ganjil, Genap).
+            Ganjil = [1,3,5,7]
+            Genap = [2,4,6]
+            yes
+   
+
+Bagian <BONUS>
+
+    Query:  startCalculator.
+        Selamat Datang di Kalkulator Prolog!
+        Currently Saved Value is 0
+        yes
+
+    Query:  add(5).
+        Old Saved Value is 0
+        New Saved Value is 5
+        yes
+
+    Query:  startCalculator.
+        Kalkulator sudah dijalankan
+        yes
+
+    Query:  divide(0).
+        Old Saved Value is 7
+        New Saved Value is Invalid, Saved Value is Still 7
+
+    Query:  subtract(7).
+        Old Saved Value is 5
+        New Saved Value is -2
+        yes
+
+    Query:  divide(-2).
+        Old Saved Value is -2
+        New Saved Value is 1
+        yes
+
+    Query:  multiply(0.5).
+        Old Saved Value is 1
+        New Saved Value is 0.5
+        yes
+
+    Query:  getValue.
+        Currently Saved Value is 0.5
+
+    Query:  clearCalculator.
+        Old Saved Value is 0.5
+        New Saved Value is 0
+        yes
+
+    Query:  exitCalculator.
+        Terima Kasih telah Menggunakan Kalkulator Prolog
+        yes
+
+    Query:  exitCalculator.
+        no
+
+    Query:  add(6).
+        no
+
+    Query: subtract(8).
+        no
